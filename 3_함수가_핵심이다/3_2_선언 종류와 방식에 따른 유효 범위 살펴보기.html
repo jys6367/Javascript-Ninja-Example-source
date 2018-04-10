@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>함수 선언과 관련한 내용들을 증명하기</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    assert(true, "|------ outer 앞쪽 ------|");
+    assert(typeof outer === 'function', "outer()는 유효 범위에 있음");
+    assert(typeof inner === 'function', "outer()는 유효 범위에 있음");
+    assert(typeof a === 'number', "a는 유효 범위에 있음");
+    assert(typeof b === 'number', "b는 유효 범위에 있음");
+    assert(typeof c === 'number', "c는 유효 범위에 있음");
+
+    function outer() {
+        assert(true, "|------ outer 내부, a 앞쪽 ------|");
+        assert(typeof outer === 'function', "outer()는 유효 범위에 있음");
+        assert(typeof inner === 'function', "outer()는 유효 범위에 있음");
+        assert(typeof a === 'number', "a는 유효 범위에 있음");
+        assert(typeof b === 'number', "b는 유효 범위에 있음");
+        assert(typeof c === 'number', "c는 유효 범위에 있음");
+
+        var a = 1;
+        assert(true, "|------ outer 내부, a 뒤쪽 ------|");
+
+        assert(typeof outer === 'function', "outer()는 유효 범위에 있음");
+        assert(typeof inner === 'function', "outer()는 유효 범위에 있음");
+        assert(typeof a === 'number', "a는 유효 범위에 있음");
+        assert(typeof b === 'number', "b는 유효 범위에 있음");
+        assert(typeof c === 'number', "c는 유효 범위에 있음");
+
+        function inner() {
+            /*nothing*/
+        }
+
+        var b = 2;
+
+        assert(true, "|------ outer 내부, inner()와 b의 뒤쪽 ------|")
+        assert(typeof outer === 'function', "outer()는 유효 범위에 있음");
+        assert(typeof inner === 'function', "outer()는 유효 범위에 있음");
+        assert(typeof a === 'number', "a는 유효 범위에 있음");
+        assert(typeof b === 'number', "b는 유효 범위에 있음");
+        assert(typeof c === 'number', "c는 유효 범위에 있음");
+
+        if (a === 1) {
+            var c = 3;
+            assert(true, "|------ outer 내부, if 내부 ------|");
+            assert(typeof outer === 'function', "outer()는 유효 범위에 있음");
+            assert(typeof inner === 'function', "outer()는 유효 범위에 있음");
+            assert(typeof a === 'number', "a는 유효 범위에 있음");
+            assert(typeof b === 'number', "b는 유효 범위에 있음");
+            assert(typeof c === 'number', "c는 유효 범위에 있음");
+        }
+
+        assert(true, "|------ outer 내부, if 바깥------|");
+        assert(typeof outer === 'function', "outer()는 유효 범위에 있음");
+        assert(typeof inner === 'function', "outer()는 유효 범위에 있음");
+        assert(typeof a === 'number', "a는 유효 범위에 있음");
+        assert(typeof b === 'number', "b는 유효 범위에 있음");
+        assert(typeof c === 'number', "c는 유효 범위에 있음");
+    }
+
+    outer();
+
+    assert(true, "|------ outer 뒤쪽 ------|");
+    assert(typeof outer === 'function', "outer()는 유효 범위에 있음");
+    assert(typeof inner === 'function', "outer()는 유효 범위에 있음");
+    assert(typeof a === 'number', "a는 유효 범위에 있음");
+    assert(typeof b === 'number', "b는 유효 범위에 있음");
+    assert(typeof c === 'number', "c는 유효 범위에 있음");
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
