@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    var ninja = {
+        chirp: function signal(n) {
+            return n > 1 ? signal(n - 1) + "-chirp" : "chirp";
+        }
+    };
+
+    assert(ninja.chirp(3) === "chirp-chirp-chirp", "예상한대로 동작한다");
+
+    var samurai = {chirp: ninja.chirp};
+
+    ninja = {};
+
+    assert(samurai.chirp(3) === "chirp-chirp-chirp", "메서드 재귀호출이 제대로 동작한다.");
+</script>
+</html>
