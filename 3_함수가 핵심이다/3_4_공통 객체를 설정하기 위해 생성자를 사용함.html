@@ -25,6 +25,15 @@
     <ul id="results"></ul>
 </body>
 <script>
+    function Ninja() {
+        this.skulk = function () {
+            return this;
+        }
+    }
 
+    var ninja1 = new Ninja();
+    var ninja2 = new Ninja();
+    assert(ninja1.skulk() === ninja1, "첫 번째 닌자가 숨어있다.");
+    assert(ninja2.skulk() === ninja2, "두 번째 닌자가 숨어있다.");
 </script>
 </html>

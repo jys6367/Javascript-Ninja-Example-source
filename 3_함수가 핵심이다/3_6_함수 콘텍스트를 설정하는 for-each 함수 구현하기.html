@@ -25,6 +25,18 @@
     <ul id="results"></ul>
 </body>
 <script>
+    function forEach(list, callback) {
+        for (var n = 0; n < list.length; n++) {
+            callback.call(list[n], n);
+        }
+    }
 
+    var weapons = ["shuriken", "katana", "nunchucks"];
+
+    forEach(weapons, function (index) {
+        // this가 string Object로 들어옴..?
+        // assert(this === weapons[index], weapons[index] + "에 대해 기대한 값을 얻음");
+        assert(this.toString() === weapons[index], weapons[index] + "에 대해 기대한 값을 얻음");
+    });
 </script>
 </html>
