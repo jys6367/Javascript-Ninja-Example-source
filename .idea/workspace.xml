@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75ac15bf-f192-438b-9117-a7659846b7c2" name="Default" comment="" />
+    <list default="true" id="75ac15bf-f192-438b-9117-a7659846b7c2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_4_간단한 자바스크립트 검증 구현.html" beforeDir="false" afterPath="$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_4_간단한 자바스크립트 검증 구현.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_5_테스트 그룹 구현.html" beforeDir="false" afterPath="$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_5_테스트 그룹 구현.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_6_간단한 비동기 테스트 스위트.html" beforeDir="false" afterPath="$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_6_간단한 비동기 테스트 스위트.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3_함수가_핵심이다/3_1_함수 선언과 관련된 내용들을 증명하기.html" beforeDir="false" afterPath="$PROJECT_DIR$/3_함수가 핵심이다/3_1_함수 선언과 관련된 내용들을 증명하기.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3_함수가_핵심이다/3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html" beforeDir="false" afterPath="$PROJECT_DIR$/3_함수가 핵심이다/3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -14,17 +22,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="2_4_간단한 자바스크립트 검증 구현.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_4_간단한 자바스크립트 검증 구현.html">
+        <entry file="file://$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_4_간단한 자바스크립트 검증 구현.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
               <caret line="10" column="9" selection-start-line="5" selection-start-column="8" selection-end-line="10" selection-end-column="9" />
@@ -33,7 +32,7 @@
         </entry>
       </file>
       <file leaf-file-name="2_5_테스트 그룹 구현.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_5_테스트 그룹 구현.html">
+        <entry file="file://$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_5_테스트 그룹 구현.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="520">
               <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
@@ -42,12 +41,12 @@
         </entry>
       </file>
       <file leaf-file-name="2_6_간단한 비동기 테스트 스위트.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_6_간단한 비동기 테스트 스위트.html">
+        <entry file="file://$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_6_간단한 비동기 테스트 스위트.html">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="3_1_함수 선언과 관련된 내용들을 증명하기.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/3_함수가_핵심이다/3_1_함수 선언과 관련된 내용들을 증명하기.html">
+        <entry file="file://$PROJECT_DIR$/3_함수가 핵심이다/3_1_함수 선언과 관련된 내용들을 증명하기.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
               <caret line="39" selection-start-line="39" selection-end-line="39" />
@@ -55,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/3_함수가_핵심이다/3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html">
+      <file leaf-file-name="3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/3_함수가 핵심이다/3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
-              <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
+            <state relative-caret-position="534">
+              <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -67,8 +66,17 @@
       <file leaf-file-name="_template.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="685">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="659">
+              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -92,6 +100,9 @@
       <find>results</find>
       <find>anFly()에는 이름이 없음</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -118,6 +129,7 @@
         <option value="$PROJECT_DIR$/3_함수가_핵심이다/3_1_함수_선언과_관련된_내용들을_증명하기.html" />
         <option value="$PROJECT_DIR$/_template.html" />
         <option value="$PROJECT_DIR$/3_함수가_핵심이다/3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -127,14 +139,12 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="1294" />
     <option name="height" value="1407" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <autoscrollFromSource ProjectPane="true" />
@@ -152,12 +162,12 @@
             <path>
               <item name="Stduy_JS" type="b2602c69:ProjectViewProjectNode" />
               <item name="Stduy_JS" type="462c0819:PsiDirectoryNode" />
-              <item name="2_테스팅과_디버깅_갖추기" type="462c0819:PsiDirectoryNode" />
+              <item name="2_테스팅과 디버깅 갖추기" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Stduy_JS" type="b2602c69:ProjectViewProjectNode" />
               <item name="Stduy_JS" type="462c0819:PsiDirectoryNode" />
-              <item name="3_함수가_핵심이다" type="462c0819:PsiDirectoryNode" />
+              <item name="3_함수가 핵심이다" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -201,7 +211,7 @@
     <configuration name="2_6_간단한_비동기_테스트_스위트.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Stduy_JS/2_테스팅과 디버깅 갖추기/2_6_간단한_비동기_테스트_스위트.html" />
     <configuration name="3_1_함수 선언과 관련된 내용들을 증명하기.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Stduy_JS/3_함수가_핵심이다/3_1_함수 선언과 관련된 내용들을 증명하기.html" />
     <configuration name="3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Stduy_JS/3_함수가_핵심이다/3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html" />
-    <configuration name="3_1_함수_선언과_관련된_내용들을_증명하기.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="3_1_함수_선언과_관련된_내용들을_증명하기.js" working-dir="$PROJECT_DIR$/3_함수가_핵심이다" />
+    <configuration name="3_1_함수_선언과_관련된_내용들을_증명하기.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="3_1_함수_선언과_관련된_내용들을_증명하기.js" working-dir="$PROJECT_DIR$/3_함수가 핵심이다" />
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -309,12 +319,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523370225436</updated>
-      <workItem from="1523370226630" duration="4276000" />
+      <workItem from="1523370226630" duration="4970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4276000" />
+    <option name="totallyTimeSpent" value="4970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1294" height="1407" extended-state="0" />
@@ -324,10 +334,10 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32967892" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32967892" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" weight="0.33202818" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3322884" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -367,41 +377,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_6_간단한 비동기 테스트 스위트.html">
+    <entry file="file://$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_6_간단한 비동기 테스트 스위트.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_5_테스트 그룹 구현.html">
+    <entry file="file://$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_5_테스트 그룹 구현.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2_테스팅과_디버깅_갖추기/2_4_간단한 자바스크립트 검증 구현.html">
+    <entry file="file://$PROJECT_DIR$/2_테스팅과 디버깅 갖추기/2_4_간단한 자바스크립트 검증 구현.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="10" column="9" selection-start-line="5" selection-start-column="8" selection-end-line="10" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/3_함수가_핵심이다/3_1_함수 선언과 관련된 내용들을 증명하기.html">
+    <entry file="file://$PROJECT_DIR$/3_함수가 핵심이다/3_1_함수 선언과 관련된 내용들을 증명하기.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_template.html">
+    <entry file="file://$PROJECT_DIR$/3_함수가 핵심이다/3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="534">
+          <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/3_함수가_핵심이다/3_2_선언 종류와 방식에 따른 유효 범위 살펴보기.html">
+    <entry file="file://$PROJECT_DIR$/_template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="659">
-          <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
