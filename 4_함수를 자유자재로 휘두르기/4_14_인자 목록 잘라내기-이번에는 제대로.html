@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    function multiMax(multi) {
+        return multi * Math.max.apply(Math, Array.prototype.slice.call(arguments, 1));
+    }
+
+    assert(multiMax(3, 1, 2, 3) === 9, "3*3=9 (첫 번째 인자와 나머지 인자 중에서 가장 큰 인자를 곱한다.");
+</script>
+</html>

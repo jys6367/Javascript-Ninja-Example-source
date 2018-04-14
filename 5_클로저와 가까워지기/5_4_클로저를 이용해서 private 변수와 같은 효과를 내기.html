@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    function Ninja() {
+        var feints = 0;
+        this.getFeints = function () {
+            return feints;
+        };
+
+        this.feint = function () {
+            feints++;
+        };
+    }
+
+    var ninja = new Ninja();
+
+    ninja.feint();
+
+    assert(ninja.getFeints() === 1, "생성자 함수 내부에 있는 feint 변수의 값은 얻어올 수 있다.");
+
+    assert(ninja.feints === undefined, "하지만 private 변수에는 직접 접근할 수 없다.");
+</script>
+</html>

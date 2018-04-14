@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+
+    <div id="testSubject"></div>
+    <button type="button" id="testButton">Go!</button>
+</body>
+<script>
+    var jQuery = $;
+    jQuery("#testButton").click(function () {
+        console.log(123);
+        var elem$ = jQuery("#testSubject");
+
+        elem$.html("로딩중...");
+
+        jQuery.ajax({
+            url: "test.html",
+            success: function (html) {
+                assert(elem$, "콜백 함수의 클로저를 통해서 elem$ 변수를 참조할 수 있다.");
+                elem$.html(html);
+            }
+        })
+    });
+</script>
+</html>

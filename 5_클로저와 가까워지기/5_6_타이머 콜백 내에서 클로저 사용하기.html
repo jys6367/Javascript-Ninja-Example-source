@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+    <div id="box">박스</div>
+</body>
+<script>
+    function animateIt(elementId) {
+        var elem = document.getElementById(elementId);
+        var tick = 0;
+
+        var timer = setInterval(function () {
+            if (tick < 100) {
+                elem.style.left = elem.style.top = tick + "px";
+                tick++;
+            }
+            else {
+                clearInterval(timer);
+                assert(tick === 100, "클로저를 통해 tick 변수에 접근한다.");
+                assert(elem, "elem 변수 역시 클로저를 통해 접근한다.");
+                assert(timer, "timer 변수에 대한 참조 역시 클로저를 통해 얻을 수 있다.");
+            }
+        }, 10);
+    }
+
+    animateIt('box');
+</script>
+</html>
