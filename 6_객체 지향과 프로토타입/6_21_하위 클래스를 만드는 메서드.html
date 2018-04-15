@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    (function(){
+        var initializing = false;
+        var superPattern = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
+
+        Object.subClass = function (properties) {
+            var _super = this.prototype;
+
+            initializing = true;
+            var proto = new this();
+            initializing = false;
+
+            for(var name in properties){
+                proto[name] = typeof properties[name] === "function" &&
+                typeof _super[name] === "function" &&
+                superPattern.test(properties[name]) ?
+                    (function (name, fn) {
+                    return function(){
+                        var tmp = this._super;
+
+                        this._super = _super[name];
+
+                        var ret = fn.apply(this, arguments);
+                        this._super = tmp;
+                        return ret;
+                    };
+                })(name, properties[name]) :
+                    properties[name];
+            }
+            function Class(){
+                // 생성자와 관련한 모든 작업은 실제로 init 메서드에서 수행한다.
+                if (!initializing && this.init)
+                    this.init.apply(this, arguments);
+            }
+
+            Class.prototype = proto;
+            Class.constructor = Class;
+            Class.subClass = arguments.callee;
+
+            return Class;
+        };
+    })();
+</script>
+</html>

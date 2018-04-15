@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    function Ninja(){}
+
+    var ninja = new Ninja();
+
+    assert(typeof ninja === 'object', "인스턴스 타입은 object이다");
+    assert(ninja instanceof Ninja, "instanceof를 사용하여 생성자를 식별함");
+    assert(ninja.constructor === Ninja, "Ninja 함수를 사용하여 ninja 객체를 만들었다.");
+</script>
+</html>

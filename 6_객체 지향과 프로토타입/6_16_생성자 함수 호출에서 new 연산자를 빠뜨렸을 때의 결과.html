@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    function User(first, last) {
+        this.name = first + " " + last;
+    }
+
+    var user = User("이치고", "쿠로사키");
+
+    assert(user, "User 인스턴스가 만들어졌다.");
+    assert(user.name === "이치고 쿠로사키", "User의 이름을 올바르게 할당시켰다.");
+</script>
+</html>
