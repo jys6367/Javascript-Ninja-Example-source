@@ -25,16 +25,11 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
+    function upper(all, letter) {
+        return letter.toUpperCase();
     }
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    assert("border-bottom-width".replace(/-(\w)/g, upper) === "borderBottomWidth",
+        "대시로 연결된 문자열을 낙타 표기법으로 변환한다.");
 </script>
 </html>

@@ -25,16 +25,10 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
-    }
+    var html = "<b>Hello</b>\n<i>world!</i>";
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    assert(/.*/.exec(html)[0] === "<b>Hello</b>", "일반적인 캡처는 개행 문자를 다루지 않는다.");
+    assert(/[\S\s]*/.exec(html)[0] === "<b>Hello</b>\n<i>world!</i>", "문자 집합을 이용해서 모든 문자를 매치시킨다.");
+    assert(/(?:.|\s)*/.exec(html)[0] === "<b>Hello</b>\n<i>world!</i>", "캡처를 하지 않는 그룹을 이용해서 모든 문자를 매치시킨다.");
 </script>
 </html>

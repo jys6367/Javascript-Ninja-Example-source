@@ -23,18 +23,20 @@
 </head>
 <body>
     <ul id="results"></ul>
+    <div id="opacity" style="opacity:0.5; filter:alpha(opacity=50);"></div>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
+    function getOpacity(elem) {
+        var filter = elem.style.filter;
+        return filter ?
+            filter.indexOf("opacity=") >= 0 ?
+                (parseFloat(filter.match(/opacity=([^])+/)[1]) / 100) + "" :
+                "" :
+            elem.style.opacity;
     }
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    window.onload = function () {
+        assert(getOpacity(document.getElementById("opacity")) === "0.5", "엘리먼트의 불투명도를 찾았다.")
+    };
 </script>
 </html>

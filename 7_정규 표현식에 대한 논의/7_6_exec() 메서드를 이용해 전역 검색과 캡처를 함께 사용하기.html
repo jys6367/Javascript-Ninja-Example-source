@@ -25,16 +25,16 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
+    var html = "<div class='test'><b>Hello</b> <i>world!</i></div>";
+    var tag = /<(\/?)(\w+)([^>]*?)>/g;
+    var match;
+    var num = 0;
+
+    while ((match = tag.exec(html)) !== null) {
+        assert(match.length === 4, "모든 매치는 태그를 하나 찾고, 캡처를 3개 포함한다.");
+        num++;
     }
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    assert(num === 6, "여는 태그 3개와 닫는 태그 3개를 찾았다.");
 </script>
 </html>

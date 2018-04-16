@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    var html = "<div class='test'><b>Hello</b><i>world!</i></div>";
+
+    var results = html.match(/<(\/?)(\w+)([^>]*?)>/);
+
+    assert(results[0] === "<div class='test'>", "문자열 전체가 저장된다.");
+    assert(results[1] === "", "슬래시(/)는 저장되지 않는다.");
+    assert(results[2] === "div", "태그명이 저장된다.");
+    assert(results[3] === " class='test'", "속성(attributes)이 저장된다.");
+
+    var all = html.match(/<(\/?)(\w+)([^>]*?)>/g);
+
+    assert(all[0] === "<div class='test'>", "여는 div 태그가 저장된다.");
+    assert(all[1] === "<b>", "여는 b태그가 저장된다.");
+    assert(all[2] === "</b>", "닫는 b태그가 저장된다.");
+    assert(all[3] === "<i>", "여는 i태그가 저장된다.");
+    assert(all[4] === "</i>", "닫는 i태그가 저장된다.");
+    assert(all[5] === "</div>", "닫는 div태그가 저장된다.");
+</script>
+</html>

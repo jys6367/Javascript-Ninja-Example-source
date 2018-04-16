@@ -25,16 +25,17 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
+    function trim(str) {
+        var str = str.replace(/^\s\s*/, '');
+        var ws = /\s/;
+        var i = str.length;
+
+        while(ws.test(str.charAt(--i)));
+
+        return str.slice(0, i + 1);
     }
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    assert(trim(" #id div.class ") === "#id div.class",
+        "선택된 문자열에서 불필요한 공백을 제거했다.");
 </script>
 </html>

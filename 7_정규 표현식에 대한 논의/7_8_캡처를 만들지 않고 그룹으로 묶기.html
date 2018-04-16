@@ -25,16 +25,11 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
-    }
+    var pattern = /((?:ninja-)+)sword/;
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    var ninjas = "ninja-ninja-sword".match(pattern);
+
+    assert(ninjas.length === 2, "딱 1개의 캡처만 반환된다.");
+    assert(ninjas[1] === "ninja-ninja-", "두 단어가 매치되지만, 불필요한 캡처는 없다.");
 </script>
 </html>

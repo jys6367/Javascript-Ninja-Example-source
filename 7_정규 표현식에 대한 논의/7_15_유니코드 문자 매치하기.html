@@ -25,16 +25,10 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
-    }
+    var text = "\u5FCD\u8005\u30D1\u30EF\u30FC";
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    var matchAll = /[\w\u0080-\uFFFF_-]+/;
+
+    assert((text).match(matchAll), "이 정규 표현식은 유니코드도 찾을 수 있다.");
 </script>
 </html>

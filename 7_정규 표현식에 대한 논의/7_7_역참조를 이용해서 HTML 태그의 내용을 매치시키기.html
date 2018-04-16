@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    var html = "<b class='hello'>Hello</b> <i>world!</i>";
+    var pattern = /<(\w+)([^>]*)>(.*?)<\/\1>/g;
+
+    var match = pattern.exec(html);
+    assert(match[0] === "<b class='hello'>Hello</b>", "시작부터 끝까지, 전체 태그가 저장되어 있다.");
+    assert(match[1] === "b", "태그명이 일치한다.");
+    assert(match[2] === " class='hello'", "태그 속성이 일치한다.");
+    assert(match[3] === "Hello", "태그의 내용이 일치한다.");
+
+    match = pattern.exec(html);
+    assert(match[0] === "<i>world!</i>", "시작부터 끝까지, 전체 태그가 저장되어 있다.");
+    assert(match[1] === "i", "태그명이 일치한다.");
+    assert(match[2] === "", "태그 속성이 일치한다.");
+    assert(match[3] === "world!", "태그의 내용이 일치한다.");
+
+</script>
+</html>

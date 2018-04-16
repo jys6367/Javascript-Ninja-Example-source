@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+    <div class="samurai ninja"></div>
+    <div class="ninja samurai"></div>
+    <div></div>
+    <span class="samurai ninja ronin"></span>
+</body>
+<script>
+    function findClassInElements(className, type) {
+        var elems = document.getElementsByTagName(type || "*");
+        var regex = new RegExp("(^|\\s)" + className + "(\\s|$)");
+
+        var results = [];
+
+        for (var i = 0, length = elems.length; i < length; i++)
+            if (regex.test(elems[i].className)) {
+                results.push(elems[i]);
+            }
+        return results;
+    }
+
+    assert(findClassInElements("ninja", "div").length === 2, "의도한 수 만큼 ninja 클래스 명을 지닌 div를 찾았다.");
+    assert(findClassInElements("ninja", "span").length === 1, "의도한 수 만큼 ninja 클래스 명을 지닌 span를 찾았다.");
+    assert(findClassInElements("ninja").length === 3, "의도한 수 만큼 ninja 클래스 명을 지닌 엘리먼트를 찾았다.");
+
+
+</script>
+</html>

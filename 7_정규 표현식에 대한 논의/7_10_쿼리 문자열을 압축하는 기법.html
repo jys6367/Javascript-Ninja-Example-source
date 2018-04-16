@@ -25,16 +25,25 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
+    function compress(source) {
+        var keys = {};
+
+        source.replace(
+            /([^=&]+)=([^&]*)/g,
+            function (full, key, value) {
+                keys[key] = (keys[key] ? keys[key] + "," : "") + value;
+                return "";
             }
-        };
+        );
+
+        var results = [];
+        for (var key in keys){
+            results.push(key + "=" + keys[key]);
+        }
+        return results.join("&");
     }
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    assert(compress("foo=1&foo=2&blah=a&blah=b&foo=3") === "foo=1,2,3&blah=a,b",
+        "압축 성공");
 </script>
 </html>

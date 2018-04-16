@@ -25,16 +25,18 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
-    }
+    var pattern = /^((\w+)|(\\.))+$/;
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    var tests = [
+        "formUpdate",
+        "form\\.update\\.whatever",
+        "form\\:update",
+        "\\f\\o\\r\\m\\u\\p\\d\\a\\t\\e",
+        "form:update"
+    ];
+
+    for (var n = 0; n < tests.length; n++) {
+        assert(pattern.test(tests[n]), "성공");
+    }
 </script>
 </html>

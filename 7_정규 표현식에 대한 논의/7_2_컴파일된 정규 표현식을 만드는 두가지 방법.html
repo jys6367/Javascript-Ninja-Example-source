@@ -25,16 +25,13 @@
     <ul id="results"></ul>
 </body>
 <script>
-    if (!Array.prototype.forEach) {
-        Array.prototype.forEach = function (callback, context) {
-            for (var i = 0; i < this.length; i++) {
-                callback.call(context || null, this[i], i, this);
-            }
-        };
-    }
+    var re1 = /test/i;
+    var re2 = new RegExp("test", "i");
 
-    ["a", "b", "c"].forEach(function (value, index, array) {
-        assert(value, (array.length - 1) + "중 " + index + "위치에 있음");
-    });
+    assert(re1.toString() === "/test/i", "표현식의 내용을 검증한다.");
+    assert(re1.test("TesT"), "대소문자를 구분한다.");
+    assert(re2.test("TesT"), "이것도 대소문자를 구분한다.");
+    assert(re1.toString() === re2.toString(), "두 정규표현식이 동일하다.");
+    assert(re1 !== re2, "하지만, 두 객체는 서로 다르다.");
 </script>
 </html>
