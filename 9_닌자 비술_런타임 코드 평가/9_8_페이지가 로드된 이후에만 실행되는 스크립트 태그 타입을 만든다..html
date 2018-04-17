@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    function globalEval(data) {
+        data = data.replace(/^\s*|\s*$/g, "");
+        if(data){
+            var head = document.getElementsByTagName("head")[0] || document.documentElement;
+            var script = document.createElement("script");
+
+            script.type = "text/javascript";
+            script.text = data;
+
+            head.appendChild(script);
+            head.removeChild(script);
+        }
+    }
+
+    window.onload = function () {
+        var scripts = document.getElementsByTagName("script");
+        for (var i = 0; i < scripts.length; i++) {
+            if (scripts[i].type === "x/onload") {
+                globalEval(scripts[i].innerHTML);
+            }
+        }
+    };
+</script>
+
+<script type="x/onload">
+    assert(true, "페이지를 불렀을 때 실행된다.");
+
+</script>
+</html>

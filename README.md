@@ -184,10 +184,22 @@
 
 - 자바스크립트 엔진은 싱글스레드이다. 비동기 이벤트는 큐에 저장된다.
 - 타이머가 블록되면 다음 실행까지 대기한다.
+* settimeout, setinterval 차이점
 
 
+9.닌자비술: 런타임 코드 평가
+=====
 
+#### Function 생성자
+- js의 모든 함수는 Function의 인스턴스이다.
+- new Function("a", "b", "return a+b;"); 
+- = function(a,b){ return a+b; } 
 
+#### 런타임 평가를 위해 자바스크립트 제공하는 방법
+- eval()
+- Function 생성자
+- 타이머
+- 동적 <script> 블록
 
 
 

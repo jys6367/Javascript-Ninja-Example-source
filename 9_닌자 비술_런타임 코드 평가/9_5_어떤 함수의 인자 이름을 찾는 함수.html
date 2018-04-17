@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    function argumentsNames(fn) {
+        var found = /^[\s\(]*function[^(]*\(\s*([^)]*?)\s*\)/
+            .exec(fn.toString());
+
+        return found && found[1] ?
+            found[1].split(/,\s*/) :
+            [];
+    }
+
+    assert(argumentsNames(function(){}).length === 0, "인자가 없는 함수에 대해서 잘 작동한다.");
+    assert(argumentsNames(function(x){})[0] === "x", "인자가 하나 있는 함수에 대해서 잘 작동한다.");
+
+    var results = argumentsNames(function(a,b,c,d,e){});
+    assert(results[0] === "a" &&
+        results[1] === "b" &&
+        results[2] === "c" &&
+        results[3] === "d" &&
+        results[4] === "e",
+        "여러 인자를 가진 함수에 대해서도 잘 작동한다.");
+</script>
+</html>

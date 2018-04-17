@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    assert(eval("5+5") === 10, "5와 5를 더한 값은 10이다.");
+
+    assert(eval("var ninja = 5;") === undefined, "아무 값도 반환되지 않았다.");
+
+    assert(ninja === 5, "ninja 변수가 생성되었다.");
+
+    (function () {
+        eval("var ninja = 6;");
+        assert(ninja === 6, "현재 유효 범위 내에서 평가되었다.");
+    })();
+
+    assert(window.ninja === 5, "전역 유효 범위는 영향 받지 않았다.");
+    assert(ninja === 5, "전역 유효 범위는 영향 받지 않았다.");
+</script>
+</html>

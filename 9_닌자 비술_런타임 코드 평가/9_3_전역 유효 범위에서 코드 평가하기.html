@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    function globalEval(data) {
+        data = data.replace(/^\s*|\s*$/g, "");
+        if(data){
+            var head = document.getElementsByTagName("head")[0] || document.documentElement;
+            var script = document.createElement("script");
+
+            script.type = "text/javascript";
+            script.text = data;
+
+            head.appendChild(script);
+            head.removeChild(script);
+        }
+    }
+
+    window.onload = function () {
+        (function () {
+            globalEval("var test = 5;");
+        })();
+
+        assert(test === 5, "코드는 전역 유효 범위에서 평가되었다.");
+    }
+</script>
+</html>

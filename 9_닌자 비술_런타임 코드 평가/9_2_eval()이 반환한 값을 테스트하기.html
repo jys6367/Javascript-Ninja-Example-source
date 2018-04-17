@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+     var ninja = eval("({name:'Ninja'})");
+
+     assert(ninja !== undefined, "닌자가 만들어졌다.");
+     assert(ninja.name === "Ninja", "그리고 기대한 프로퍼티를 가지고 있다.");
+
+     var fn = eval("(function(){return 'Ninja';})");
+     assert(typeof fn === 'function', "함수가 생성되었다.");
+     assert(fn() === "Ninja", "그리고 그 함수는 기대한 값을 반환하였다.")
+
+     var ninja2 = eval("{name:'Ninja}");
+     assert(ninja2 !== undefined, "ninja2가 만들어졌다.");
+     assert(ninja2.name === "Ninja", "그리고 ninja2는 기대한 프로퍼티르 가지고 있다.");
+</script>
+</html>
