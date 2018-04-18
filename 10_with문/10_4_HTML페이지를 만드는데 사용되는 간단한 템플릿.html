@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/tmpl" id="colors">
+        <p><%= items.length %> 개 항목에 대한 목록</p>
+        <ul>
+            <% for (var i =0; i< items.length; i++){ %>
+                <li style='color:<%= colors[i % colors.length] %>'>
+    <%= items[i] %></li>
+            <% } %>
+        </ul>
+        여기는 다른 내용이 온다...
+    </script>
+    <script type="text/tmpl" id="clolors2">
+        <p><%= items.length %> 개 항목에 대한 목록</p>
+        <ul>
+            <% for (var i = 0; i < items.length; i++) {
+                print("<li style='color:", colors[i % colors.length], "'>",
+    items[i], "<li>");
+            } %>
+        </ul>
+    </script>
+    <script type="text/javascript" src="tmpl.js"></script>
+    <script type="text/javascript">
+        var colorsArray = ['red', 'green', 'blue', 'orange'];
+        var items = [];
+        for (var i = 0; i< 10000; i++){
+            items.push("test");
+        }
+
+        function replaceContent(name) {
+            document.getElementById("content").innerHTML = tmpl(name, {colors:colorsArray, items: items});
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Run Colors" onclick="replaceContent('colors')" >
+    <input type="button" value="Run Colors2" onclick="replaceContent('colors2')" >
+    <p id="content">치환된 내용이 여기 표시된다.</p>
+</body>
+</html>

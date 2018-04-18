@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    var ninja = {foo: "bar"};
+    var value;
+    var maxCount = 1000000;
+    var n;
+    var start;
+    var elapsed;
+
+    start = new Date().getTime();
+    for (n = 0; n < maxCount; n++) {
+        value = ninja.foo;
+    }
+    elapsed = new Date().getTime() - start;
+    assert(true, "with 미사용: " + elapsed);
+
+    start = new Date().getTime();
+    with (ninja){
+        for (n = 0; n < maxCount; n++) {
+            value = foo;
+        }
+    }
+    elapsed = new Date().getTime() - start;
+    assert(true, "with (프로퍼티 접근이 있는 경우): " + elapsed);
+
+    start = new Date().getTime();
+    with (ninja){
+        for (n = 0; n < maxCount; n++) {
+            foo = n;
+        }
+    }
+    elapsed = new Date().getTime() - start;
+    assert(true, "with (프로퍼티에 값을 할당): " + elapsed);
+
+    start = new Date().getTime();
+    with (ninja) {
+        for (n = 0; n < maxCount; n++) {
+            value = "no test";
+        }
+    }
+    elapsed= new Date().getTime() - start;
+    assert(true, "with (프로퍼티 접근은 없음): " + elapsed);
+
+</script>
+</html>

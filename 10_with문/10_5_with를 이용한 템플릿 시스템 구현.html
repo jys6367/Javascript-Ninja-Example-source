@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+    <script type="text/tmpl" id="colors">
+        <p><%= items.length %> 개 항목에 대한 목록</p>
+        <ul>
+            <% for (var i =0; i< items.length; i++){ %>
+                <li style='color:<%= colors[i % colors.length] %>'>
+    <%= items[i] %></li>
+            <% } %>
+        </ul>
+        여기는 다른 내용이 온다...
+    </script>
+    <script type="text/tmpl" id="clolors2">
+        <p><%= items.length %> 개 항목에 대한 목록</p>
+        <ul>
+            <% for (var i = 0; i < items.length; i++) {
+                print("<li style='color:", colors[i % colors.length], "'>",
+    items[i], "<li>");
+            } %>
+        </ul>
+    </script>
+    <script type="text/javascript" src="tmpl.js"></script>
+    <script type="text/javascript">
+        var colorsArray = ['red', 'green', 'blue', 'orange'];
+        var items = [];
+        for (var i = 0; i< 10000; i++){
+            items.push("test");
+        }
+
+        function replaceContent(name) {
+            document.getElementById("content").innerHTML = tmpl(name, {colors:colorsArray, items: items});
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Run Colors" onclick="replaceContent('colors')" >
+    <input type="button" value="Run Colors2" onclick="replaceContent('colors2')" >
+    <p id="content">치환된 내용이 여기 표시된다.</p>
+    <ul id="results"></ul>
+</body>
+<script>
+    (function () {
+        var cache = {};
+
+        this.tmpl = function tmpl(str, data) {
+            var fn = !/\w/.test(str) ?
+                cache[str] = cache[str] ||
+                    tmpl(document.getElementById(str).innerHTML) :
+
+                new Function("obj",
+                "var p=[],print=function(){p.push.apply(p,arguments);};" +
+                "with(obj){p.push('" +
+
+                str
+                    .replace(/[\r\t\n]/g, " ")
+                    .split("<%").join("\t")
+                    .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+                    .replace(/\t=(.*?)%>/g, "',$1,'")
+                    .split("\t").join("');")
+                    .split("%>").join("p.push('")
+                    .split("\r").join("\\'")
+                     + "');}return p.join('');");
+
+            return data ? fn( data ) : fn;
+        };
+    })();
+
+    assert(tmpl("Hello, <%= name %>!", {name: "world"}) === "Hello, world!", "간단한 변수 사용을 지원한다.");
+
+    var hello = tmpl("Hello, <% name %>!");
+    assert(hello({name: "world"}) === "Hello, world!", "미리 컴파일된 템플릿을 사용한다.");
+</script>
+</html>
