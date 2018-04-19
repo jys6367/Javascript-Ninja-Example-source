@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+    <a href="listing-12.5.html" id="testSubject">Self</a>
+</body>
+<script>
+    var link = document.getElementById("testSubject");
+
+    var linkHref = link.getAttributeNode("href").nodeValue;
+
+    assert(linkHref === "listing-12.5.html", "노드에서 얻은 링크 값은 문제 없음.");
+    assert(link.href === "listing-12.5.html", "링크의 href 프로퍼티 값은 문제 없음.");
+    assert(link.getAttribute("href") === linkHref, "링크의 속성 값은 변경되지 않음.");
+
+</script>
+</html>
