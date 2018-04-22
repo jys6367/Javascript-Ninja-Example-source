@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    if (document.addEventListener) {
+        this.addEvent = function (elem, type, fn) {
+            elem.addEventListener(type, fn, false);
+            return fn;
+        };
+
+        this.removeEvent = function (elem, type, fn) {
+            elem.removeEventListener(type, fn, false);
+        };
+    }
+    else if (document.attachEvent) {
+        this.addEvent = function (elem, type, fn) {
+            var bound = function () {
+                return fn.apply(elem, arguments);
+            };
+            elem.attachEvent("on" + type, bound);
+            return bound;
+        };
+
+        this.removeEvent = function (elem, type, fn) {
+            elem.detachEvent("on" + type, fn);
+        };
+    }
+</script>
+</html>

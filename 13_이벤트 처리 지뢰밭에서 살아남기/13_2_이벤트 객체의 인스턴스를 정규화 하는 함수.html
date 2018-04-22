@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+        }
+    </script>
+    <style>
+        #results li.pass {
+            color: green;
+        }
+
+        #results li.fail {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+<script>
+    function fixEvent(event) {
+        function returnTrue() {return true;}
+        function returnFalse() {return false;}
+
+        if (!event || !event.stopPropagation) {
+            var old = event || window.event;
+
+            // 본래 객체를 복제해서 값을 수정할 수 있게 한다.
+            event = {};
+
+            for (var prop in old) {
+                event[prop] = old[prop];
+            }
+
+            // 이벤트가 발생한 객체를 설정한다.
+            if (!event.target) {
+                event.target = event.srcElement || document;
+            }
+
+            // 이 이벤트에 관련이 있는 다른 엘리먼트를 설정한다.
+            event.relatedTarget = event.fromElement === event.target ?
+                event.toElement :
+                event.fromElement;
+
+            // 브라우저의 기본 동작을 중지시킨다.
+            event.preventDefault = function () {
+                event.returnValue = false;
+                event.isdefaultPrevented = returnTrue;
+            };
+
+            event.isDefaultPrevented = returnFalse;
+
+            // 이벤트 버블링을 중지시킨다.
+            event.stopPropagation = function () {
+                event.cancleBubble = true;
+                event.isPropagationStopped = returnTrue;
+            };
+
+            event.isPropagationStopped = returnFalse;
+
+            // 마우스 위치를 처리한다.
+            if (event.clientX != null) {
+                var doc = document.documentElement;
+                var body = document.body;
+                event.pageX = event.clientX +
+                    (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+                    (doc && doc.clientLeft || body && body.clientLeft || 0);
+                event.pageY = event.clientY +
+                    (doc && doc.scrollTop || body && body.scrollTop || 0) -
+                    (doc && doc.clientTop || body && body.clientTop || 0);
+            }
+
+            // 키 입력을 처리한다.
+            event.which = event.charCode || event.keyCode;
+
+            // 마우스 클릭에 대한 버튼 정보를 수정한다.
+            // 0 == left; 1 == middle; 2 == right
+            if (event.button != null) {
+                event.button = (event.button & 1 ?
+                    0 :
+                    (event.button & 4 ?
+                        1 :
+                        (event.button & 2 ? 2 : 0)));
+            }
+        }
+        return event;
+    }
+</script>
+</html>
